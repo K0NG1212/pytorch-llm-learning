@@ -181,3 +181,19 @@ model.zero_grad()
 # 或
 for p in model.parameters():
     p.grad = None  # 更高效，不会分配新 tensor
+
+6️⃣ 停止梯度追踪
+
+有时候我们不需要梯度（比如推理阶段、或者想冻结部分参数），可以：
+with torch.no_grad():
+    z = x**2
+
+# 或
+x_detached = x.detach()
+这样 PyTorch 不会记录计算图，节省内存和计算。
+
+7️⃣ 小练习
+现在做一个 两层简单神经网络的梯度计算，可以直观看到：
+前向传播
+损失计算
+反向传播后参数的梯度变化
