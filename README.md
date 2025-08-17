@@ -77,74 +77,136 @@ tensorboard --logdir=./outputs/tensorboard_logs --port=6006
 ---
 
 模块 1｜PyTorch 基础与复现性
+
 张量创建与运算（CPU/GPU 切换）
+
 Autograd & 反向传播
+
 torch.no_grad() 与 torch.inference_mode()
+
 固定随机种子、打印环境信息
+
 模型模式切换：train() / eval()
+
 Debug 手段：print(tensor.shape), torch.cuda.memory_allocated()
+
 任务：
+
 波士顿房价（或合成数据）线性回归
+
 固定种子复现实验结果
 
+
 模块 2｜神经网络搭建 + 数据管线
+
 自定义 nn.Module
+
 Dataset & DataLoader
+
 损失函数与优化器（MSELoss、CrossEntropyLoss）
+
 学习率调度器（StepLR, CosineAnnealingLR）
+
 提前停止（EarlyStopping）
+
 任务：
+
 MNIST/Fashion-MNIST 分类（acc ≥ 97%）
+
 保存最佳权重 & 完整 checkpoint
 
+
 模块 3｜Transformer 最小可用（文本分类）
+
 Self-Attention 直观理解
+
 Hugging Face transformers + datasets
+
 AutoTokenizer & AutoModelForSequenceClassification
+
 指标计算（accuracy、F1、混淆矩阵）
+
 任务：
+
 IMDb / AG News 分类
+
 输出测试集指标 & 保存 tokenizer + 模型
+
 模块 4｜训练优化与稳定性
+
 AMP（autocast, GradScaler）
+
 梯度裁剪（clip_grad_norm_）
+
 梯度累积（gradient accumulation）
+
 PyTorch 2.x torch.compile 加速
+
 NaN 检测 & 日志监控
+
 任务：
+
 在模块3模型上对比：AMP vs FP16 vs FP32（显存、速度、指标变化）
 
+
 模块 5｜多卡与分布式
+
 torchrun --nproc_per_node=...
+
 Hugging Face Accelerate (accelerate config / accelerate launch)
+
 NCCL 后端 & 环境检查
+
 梯度同步机制
+
 任务：
+
 2 卡并行跑 IMDb/BERT 微调
+
 吞吐量对比单卡
+
 扩展：
+
 DeepSpeed ZeRO Stage 2/3（可选）
 
+
 模块 6｜参数高效微调（PEFT/LoRA）+ 量化
+
 LoRA 原理与 Hugging Face PEFT 库
+
 bitsandbytes 8bit/4bit 量化
+
 LoRA + AMP + 梯度累积结合
+
 任务：
+
 在 GPT-2 / Tiny-LLM 上做指令/对话微调
+
 对比 FP16 与 8bit 推理延迟与显存占用
+
 模块 7｜推理与部署闭环
+
 推理参数（top-k, top-p, temperature）
+
 保存模型/tokenizer/config
+
 Gradio / FastAPI 简易部署
+
 ONNX/TensorRT 导出（可选）
+
 任务：
+
 做一个网页对话 Demo
+
 显示推理时间、显存占用
+
 对比量化前后效果
+
 
 模块 8｜综合小项目（选题灵活）
 
 建议选题：
+
 RAG 问答系统：用 sentence-transformers 检索课程笔记 → GPT-2 LoRA 回答问题
 
 行业应用：如情感分析+客服对话，或数据分析报告生成
